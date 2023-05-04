@@ -5,17 +5,19 @@ import {
 import './App.css';
 import Home from '../src/Pages/Home/Home';
 import Ticket from '../src/Pages/Ticket/Ticket'
+import { useState } from "react";
 
 function App() {
+  const [movieDetails, setMovieDetails] = useState({})
   
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Home></Home>,
+      element: <Home setMovieDetails={setMovieDetails}></Home>,
     },
     {
       path: "/ticket",
-      element: <Ticket></Ticket>
+      element: <Ticket movieDetails={movieDetails}></Ticket>
     }
   ]);
   
